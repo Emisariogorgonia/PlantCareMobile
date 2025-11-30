@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantCareMobile.Views.WelcomePage"
+             Shell.TabBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.ForegroundColor="#05DF73"
+             Shell.BackgroundColor="#101928"
+             BackgroundColor="#101928">
+
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 Margin="20"
+                 Spacing="20">
+        <!--LOGO-->
+        <StackLayout Orientation="Horizontal"
+                     Spacing="12"
+                     HorizontalOptions="Center">
+            <Image Source="greenleaf_plantcare.png"
+                   HeightRequest="50"
+                   WidthRequest="50" />
+            <Label Text="PlantCare"
+                   TextColor="#05DF73"
+                   FontFamily="RobotoVar"
+                   FontAttributes="Bold"
+                   FontSize="48"
+                   HorizontalTextAlignment="Center" />
+        </StackLayout>
+
+        <!--Brief Description-->
+        <Label Text="Identifica tus plantas, aprende a cuidarlas y recibe recordatorios de riego."
+               FontSize="20"
+               LineHeight="1"
+               HorizontalTextAlignment="Center" />
+
+        <!--Buttons-->
+        <FlexLayout HorizontalOptions="Center"
+                    Wrap="Wrap"
+                    AlignItems="Center"
+                    JustifyContent="Center">
+            <!--LOGIN BUTTON-->
+            <Border WidthRequest="158"
+                    HeightRequest="45"
+                    StrokeShape="RoundRectangle, 5"
+                    Margin="6,4"
+                    Padding="0"
+                    StrokeThickness="0">
+                <Button x:Name="loginButton"
+                        Clicked="loginButton_Clicked"
+                        Text="Iniciar Sesion"
+                        TextColor="White"
+                        ImageSource="enter_icon.png"
+                        BackgroundColor="#008336"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        Padding="12,0"
+                        ContentLayout="Left,8" />
+            </Border>
+
+            <!--REGISTER BUTTON-->
+            <Border WidthRequest="158"
+                    HeightRequest="45"
+                    StrokeShape="RoundRectangle, 5"
+                    Margin="6,4"
+                    Padding="0"
+                    StrokeThickness="0">
+                <Button x:Name="registerButton"
+                        Clicked="registerButton_Clicked"
+                        Text="Registrarse"
+                        ImageSource="newuser_icon.png"
+                        BackgroundColor="White"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        Padding="12,0"
+                        ContentLayout="Left,8" />
+            </Border>
+        </FlexLayout>
+        <!--Leaf Bottom Decoration-->
+        <StackLayout Orientation="Horizontal"
+                     Spacing="20"
+                     HorizontalOptions="Center">
+            <Image Source="transparentdecorationleaf_icon.png"
+                   WidthRequest="40"
+                   HeightRequest="46"
+                   Rotation="0" />
+            <Image Source="transparentdecorationleaf_icon.png"
+                   WidthRequest="40"
+                   HeightRequest="46"
+                   Rotation="45" />
+            <Image Source="transparentdecorationleaf_icon.png"
+                   WidthRequest="40"
+                   HeightRequest="46"
+                   Rotation="-45" />
+            <Image Source="transparentdecorationleaf_icon.png"
+                   WidthRequest="40"
+                   HeightRequest="46"
+                   Rotation="90" />
+            <Image Source="transparentdecorationleaf_icon.png"
+                   WidthRequest="40"
+                   HeightRequest="46"
+                   Rotation="-90" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

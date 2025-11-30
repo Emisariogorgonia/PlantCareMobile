@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="PlantCareMobile.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:PlantCareMobile.Views"
+       Title="PlantCareMobile"
+       >
+
+    <Shell.Resources>
+        <Style TargetType="FlyoutItem"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#101928" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Style.Triggers>
+                <Trigger TargetType="FlyoutItem"
+                         Property="IsChecked"
+                         Value="True">
+                    <Setter Property="Shell.ForegroundColor"
+                            Value="#05DF73" />
+                    <Setter Property="Shell.TitleColor"
+                            Value="#05DF73" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="120"
+              BackgroundColor="#101928"
+              Padding="20">
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         Spacing="10">
+                <Image Source="greenleaf_plantcare.png"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       VerticalOptions="Center" />
+                <Label Text="PlantCare"
+                       TextColor="#05DF73"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+            </StackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!--PAGINA INICIAL-->
+    <ShellContent ContentTemplate="{DataTemplate views:WelcomePage}"
+                  Shell.FlyoutItemIsVisible="False"
+                  Shell.FlyoutBehavior="Disabled"
+                  Shell.NavBarIsVisible="False" />
+    
+    <!--PAGINAS UNA VEZ AUTENTICADA UNA SESION-->
+    <FlyoutItem Title="Inicio"
+                Icon="home_icon.png">
+        <ShellContent Route="HomePage" ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Perfil"
+                Icon="user_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Plantas"
+                Icon="gallery_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:PlantsGalleryPage}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Recordatorios"
+                Icon="bell_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:RemindersPage}" />
+    </FlyoutItem>
+
+    
+
+
+    <MenuItem Text=" "
+              IsEnabled="False" />
+
+    <FlyoutItem Title="Configuración"
+                Icon="settings_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Ayuda"
+                Icon="help_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:HelpPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Acerca de"
+                Icon="help_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20"
+                     VerticalOptions="End">
+            <Button Text="Cerrar Sesión"
+                    BackgroundColor="#A82B2B"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    ImageSource="logout_icon.png" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+
+</Shell>

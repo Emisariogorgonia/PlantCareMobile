@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantCareMobile.Views.LoginPage"
+             BackgroundColor="#101928"
+             Shell.TabBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.ForegroundColor="#05DF73"
+             Shell.BackgroundColor="#101928">
+    <Grid RowDefinitions="Auto,*"
+          ColumnDefinitions="*">
+
+
+        <!--LOGO-->
+        <StackLayout Orientation="Horizontal"
+                     Spacing="12"
+                     Margin="20,0,0,0"
+                     Grid.Row="0">
+            <Image Source="greenleaf_plantcare.png"
+                   HeightRequest="50"
+                   WidthRequest="50" />
+            <Label Text="PlantCare"
+                   TextColor="#05DF73"
+                   FontFamily="RobotoVar"
+                   FontAttributes="Bold"
+                   FontSize="38"
+                   HorizontalTextAlignment="Center" />
+        </StackLayout>
+
+        <!--Campos para iniciar Sesion-->
+        <StackLayout Grid.Row="1"
+                     Spacing="10"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Center"
+                     Margin="15,0,15,100">
+            <Label Text="Iniciar Sesión"
+                   FontSize="25"
+                   FontFamily="RobotoVar"
+                   FontAttributes="Bold"
+                   TextColor="#05DF73"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,10" />
+            <!--CAMPO PARA INSERTAR EMAIL-->
+            <Border StrokeShape="RoundRectangle, 10"
+                    Stroke="#FFFFFF"
+                    Padding="5">
+                <Grid ColumnDefinitions="Auto,*"
+                      RowDefinitions="*">
+                    <Image Source="email_icon.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Margin="0,0,5,0" />
+                    <Entry x:Name="emailEntry"
+                           Grid.Column="1"
+                           Placeholder="Correo Electronico"
+                           Keyboard="Email" />
+                </Grid>
+            </Border>
+
+            <!--CAMPO PARA INSERTAR CONTRASEÑA-->
+            <Border StrokeShape="RoundRectangle, 10"
+                    Stroke="White"
+                    Padding="5"
+                    Margin="0,10,0,0">
+                <Grid ColumnDefinitions="Auto,*, Auto"
+                      RowDefinitions="*">
+                    <Image Source="password_icon.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Margin="0,0,5,0" />
+                    <Entry x:Name="passwordEntry"
+                           IsPassword="True"
+                           Grid.Column="1"
+                           Placeholder="Contraseña"
+                            />
+                    <Image x:Name="YesNoShowPassImage"
+                           Grid.Column="2"
+                           Source="showpassword_icon.png"
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Margin="0,0,10,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="YesNoShowPassImage_Tapped" />
+                        </Image.GestureRecognizers>
+
+                    </Image>
+                </Grid>
+            </Border>
+
+            <Grid ColumnDefinitions="Auto, *">
+                <StackLayout Orientation="Horizontal"
+                             Grid.Column="0">
+                    <CheckBox x:Name="remindmeCheckBox"
+                              Color="#05DF73" />
+                    <Label Text="Recuérdame"
+                           FontSize="15"
+                           TextColor="White"
+                           VerticalOptions="Center" />
+                </StackLayout>
+
+                <Label Text="¿Olvidaste tu contraseña?"
+                       Grid.Column="1"
+                       TextColor="#05DF73"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       FontSize="15">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="forgotpasswordLabel_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            
+            <!--Boton para Iniciar Sesion-->
+            <Button x:Name="loginButton"
+                    Text="Iniciar Sesion"
+                    BackgroundColor="#008336"
+                    TextColor="White" 
+                    Margin="0,0,0,15"
+                    Clicked="loginButton_Clicked"/>
+            <!--label NO TIENE CUENTA-->
+            <Grid ColumnDefinitions="Auto,Auto"
+                  HorizontalOptions="Center"
+                  ColumnSpacing="7">
+                <Label Text="¿No tienes una cuenta?" />
+                <Label x:Name="gotoRegisterLabel"
+                    Grid.Column="1"
+                       Text="Regístrate"
+                       TextColor="#05DF73"
+                       >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoToRegisterLabel_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </StackLayout>
+
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantCareMobile.Views.HelpPage"
+             Title="Ayuda"
+             Shell.ForegroundColor="#05DF73"
+             Shell.BackgroundColor="#101928"
+             BackgroundColor="#101928">
+    <ScrollView>
+        <StackLayout>
+            <!--QUE ES PLANTCARE?-->
+            <Border StrokeShape="RoundRectangle 12"
+                    StrokeThickness="0"
+                    Padding="20"
+                    Margin="0,0,0,20">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <HorizontalStackLayout Spacing="10"
+                                           VerticalOptions="Center">
+                        <Image Source="leaf_icon.png"
+                               HeightRequest="22"
+                               WidthRequest="22"
+                               VerticalOptions="Center">
+
+                        </Image>
+
+                        <Label Text="¿Qué es PlantCare?"
+                               TextColor="#05DF73"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Label Text="PlantCare es una app con IA para identificar plantas, guardarlas en tu colección y recibir consejos de cuidado personalizados."
+                           TextColor="#E5E7EB"
+                           FontSize="14"
+                           LineHeight="1.2" />
+
+                    <BoxView HeightRequest="1"
+                             Color="#05DF73"
+                             Opacity="0.5"
+                             HorizontalOptions="Fill"
+                             Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </Border>
+            
+            <!--COMO IDENTIFICO UNA PLANTA?-->
+            <Border StrokeShape="RoundRectangle 12"
+                    StrokeThickness="0"
+                    Padding="20"
+                    Margin="0,0,0,20">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <HorizontalStackLayout Spacing="10"
+                                           VerticalOptions="Center">
+                        <Image Source="leaf_icon.png"
+                               HeightRequest="22"
+                               WidthRequest="22"
+                               VerticalOptions="Center">
+
+                        </Image>
+
+                        <Label Text="¿Cómo identifico una planta?"
+                               TextColor="#05DF73"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Label Text="Usa el “Identificador de Plantas” en el panel principal. Sube una foto nítida y la IA te dará su nombre y cuidados."
+                           TextColor="#E5E7EB"
+                           FontSize="14"
+                           LineHeight="1.2" />
+
+                    <BoxView HeightRequest="1"
+                             Color="#05DF73"
+                             Opacity="0.5"
+                             HorizontalOptions="Fill"
+                             Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!--COMO AGREGO UNA PLANTA A MI COLECCION?-->
+            <Border StrokeShape="RoundRectangle 12"
+                    StrokeThickness="0"
+                    Padding="20"
+                    Margin="0,0,0,20">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <HorizontalStackLayout Spacing="10"
+                                           VerticalOptions="Center">
+                        <Image Source="leaf_icon.png"
+                               HeightRequest="22"
+                               WidthRequest="22"
+                               VerticalOptions="Center">
+
+                        </Image>
+                            <Label Text="¿Cómo agrego una planta a mi colección?"
+                               TextColor="#05DF73"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Label Text="Usa el “Identificador de Plantas” en el panel principal. Sube una foto nítida y la IA te dará su nombre y cuidados."
+                           TextColor="#E5E7EB"
+                           FontSize="14"
+                           LineHeight="1.2" />
+
+                    <BoxView HeightRequest="1"
+                             Color="#05DF73"
+                             Opacity="0.5"
+                             HorizontalOptions="Fill"
+                             Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

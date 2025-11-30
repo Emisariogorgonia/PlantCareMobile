@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantCareMobile.Views.ProfilePage"
+             Title="Perfil"
+             Shell.ForegroundColor="#05DF73"
+             Shell.BackgroundColor="#101928"
+             BackgroundColor="#101928">
+    <ScrollView>
+        <StackLayout  Orientation="Vertical"
+                      Margin="15"
+                      Spacing="20">
+
+            <!--Tarjeta de perfil del usuario-->
+            <Border StrokeShape="RoundRectangle, 15"
+                    BackgroundColor="#00a445"
+                    StrokeThickness="0"
+                    Padding="20">
+                <Grid ColumnDefinitions="Auto,*"
+                      RowDefinitions="*,*,*">
+                    <!--FOTO DEL USUARIO-->
+                    <Border StrokeShape="Ellipse"
+                            Stroke="White"
+                            StrokeThickness="5"
+                            WidthRequest="100"
+                            HeightRequest="100"
+                            Grid.RowSpan="3"
+                            BackgroundColor="Black"
+                            Margin="0,0,15,0">
+                        <Image Source="email_icon.png" />
+                    </Border>
+                    <!--NOMBRE DEL USUARIO-->
+                    <Label Grid.Column="1"
+                           Text="Andres"
+                           FontAttributes="Bold"
+                           FontSize="28" />
+
+                    <!--CORREO ELECTRONICO DEL USUARIO-->
+                    <Label Grid.Column="1"
+                           Grid.Row="1"
+                           Text="1andresalex1@gmail.com" />
+
+                    <!--ESTATUS DEL USUARIO (Verificado o no)-->
+                    <Border Grid.Row="3"
+                            Grid.Column="1"
+                            StrokeShape="RoundRectangle, 15"
+                            StrokeThickness="0"
+                            Background="#dbfde7"
+                            HorizontalOptions="Start">
+                        <HorizontalStackLayout Spacing="10"
+                                               Margin="10,0,10,0">
+                            <Image Source="newuser_icon.png"
+                                   WidthRequest="20"
+                                   HeightRequest="20" />
+                            <Label Text="Verificado"
+                                   TextColor="#1d7143"
+                                   VerticalTextAlignment="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!--Estadisticas del usuario-->
+            <ScrollView Orientation="Horizontal">
+                <HorizontalStackLayout Spacing="10">
+
+                    <!--Numero de plantas-->
+                    <Border StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#162032"
+                            StrokeThickness="0"
+                            Padding="15"
+                            HorizontalOptions="Fill">
+                        <Grid ColumnDefinitions="Auto, *"
+                              ColumnSpacing="15">
+
+                            <Border Grid.Column="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#064E3B"
+                                    StrokeThickness="0"
+                                    HeightRequest="55"
+                                    WidthRequest="55"
+                                    VerticalOptions="Center">
+                                <Image Source="greenleaf_plantcare.png"
+                                       Aspect="AspectFit"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center"
+                                                 Spacing="2">
+                                <Label Text="Plantas"
+                                       TextColor="#9CA3AF"
+                                       FontSize="14"
+                                       FontFamily="RobotoVar" />
+                                <Label x:Name="lblContadorPlantas"
+                                       Text="0"
+                                       TextColor="White"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       FontFamily="RobotoVar" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
+                    <!--Numero de recordatorios-->
+                    <Border StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#162032"
+                            StrokeThickness="0"
+                            Padding="15"
+                            HorizontalOptions="Fill">
+                        <Grid ColumnDefinitions="Auto, *"
+                              ColumnSpacing="15">
+
+                            <Border Grid.Column="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#1c388e"
+                                    StrokeThickness="0"
+                                    HeightRequest="55"
+                                    WidthRequest="55"
+                                    VerticalOptions="Center">
+                                <Image Source="greenleaf_plantcare.png"
+                                       Aspect="AspectFit"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center"
+                                                 Spacing="2">
+                                <Label Text="Plantas"
+                                       TextColor="#9CA3AF"
+                                       FontSize="14"
+                                       FontFamily="RobotoVar" />
+                                <Label Text="0"
+                                       TextColor="White"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       FontFamily="RobotoVar" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                    <!--Fecha de registro-->
+                    <Border StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#162032"
+                            StrokeThickness="0"
+                            Padding="15"
+                            HorizontalOptions="Fill">
+                        <Grid ColumnDefinitions="Auto, *"
+                              ColumnSpacing="15">
+
+                            <Border Grid.Column="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#59178b"
+                                    StrokeThickness="0"
+                                    HeightRequest="55"
+                                    WidthRequest="55"
+                                    VerticalOptions="Center">
+                                <Image Source="greenleaf_plantcare.png"
+                                       Aspect="AspectFit"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center"
+                                                 Spacing="2">
+                                <Label Text="Plantas"
+                                       TextColor="#9CA3AF"
+                                       FontSize="14"
+                                       FontFamily="RobotoVar" />
+                                <Label Text="0"
+                                       TextColor="White"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       FontFamily="RobotoVar" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                    <!--Fecha del ultimo Acceso-->
+                    <Border StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#162032"
+                            StrokeThickness="0"
+                            Padding="15"
+                            HorizontalOptions="Fill">
+                        <Grid ColumnDefinitions="Auto, *"
+                              ColumnSpacing="15">
+
+                            <Border Grid.Column="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#7f2a0d"
+                                    StrokeThickness="0"
+                                    HeightRequest="55"
+                                    WidthRequest="55"
+                                    VerticalOptions="Center">
+                                <Image Source="greenleaf_plantcare.png"
+                                       Aspect="AspectFit"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center"
+                                                 Spacing="2">
+                                <Label Text="Plantas"
+                                       TextColor="#9CA3AF"
+                                       FontSize="14"
+                                       FontFamily="RobotoVar" />
+                                <Label Text="0"
+                                       TextColor="White"
+                                       FontSize="32"
+                                       FontAttributes="Bold"
+                                       FontFamily="RobotoVar" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </HorizontalStackLayout>
+            </ScrollView>
+
+
+            <!--SECCION DE INFORMACION PERSONAL-->
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle, 15"
+                    Background="#162032">
+            <VerticalStackLayout Padding="20"
+                                 Spacing="25">
+                <!--Titulo de la seccion-->
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="5"
+                                           HorizontalOptions="Center">
+                        <!--Imagen de la seccion PENDIENTE-->
+                        <Image Source="user_icon.png"
+                               HeightRequest="15"
+                               WidthRequest="15">
+                        </Image>
+                        <Label Text="Información Personal"
+                               TextColor="#05DF73"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Start"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <!--Diseño LINEA-->
+                    <BoxView HeightRequest="2"
+                             Color="#05DF73"
+                             HorizontalOptions="Fill" />
+                </VerticalStackLayout>
+
+                <!--CAMPOS DE INFORMACION PERSONAL-->
+                <VerticalStackLayout Spacing="20"
+                                     Margin="0,10,0,0">
+
+                    <!--CAMPO PARA CONFIGURAR NOMBRE-->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Nombre para mostrar"
+                               TextColor="#D1D5DB"
+                               FontSize="14" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                StrokeThickness="0"
+                                BackgroundColor="#1F2937"
+                                Padding="15,5">
+                            <Entry Text="Andres"
+                                   TextColor="White"
+                                   Placeholder="Tu nombre"
+                                   PlaceholderColor="#6B7280" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!--CAMPO DE EMAIL (NO CONFIGURABLE)-->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Email"
+                               TextColor="#D1D5DB"
+                               FontSize="14" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                StrokeThickness="0"
+                                BackgroundColor="#374151"
+                                Padding="15,5">
+                            <Entry Text="1andresalex1@gmail.com"
+                                   TextColor="#9CA3AF"
+                                   IsReadOnly="True" />
+                        </Border>
+                        <Label Text="El email no se puede cambiar"
+                               TextColor="#6B7280"
+                               FontSize="12" />
+                    </VerticalStackLayout>
+
+                    <!--CAMPO PARA INSERTAR URL DE FOTO DE PERFIL-->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="URL de foto de perfil"
+                               TextColor="#D1D5DB"
+                               FontSize="14" />
+                        <Border StrokeShape="RoundRectangle 8"
+                                StrokeThickness="0"
+                                BackgroundColor="#1F2937"
+                                Padding="15,5">
+                            <Entry Text="https://ejemplo.com/mi-foto.jpg"
+                                   TextColor="#9CA3AF"
+                                   Placeholder="URL de la imagen"
+                                   PlaceholderColor="#6B7280" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+                <Button Text="Actualizar Perfil"
+                        BackgroundColor="#05DF73"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        CornerRadius="8"
+                        HeightRequest="50"
+                        Margin="0,20,0,0" />
+
+            </VerticalStackLayout>
+            </Border>
+            
+            <!--SECCION DE CAMBIAR CONTRASEÑA-->
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle, 15"
+                    Background="#162032">
+                <VerticalStackLayout Padding="20"
+                                     Spacing="25">
+                    <!--Titulo de la seccion-->
+                    <VerticalStackLayout Spacing="10">
+                        <HorizontalStackLayout Spacing="5"
+                                               HorizontalOptions="Center">
+                            <!--Imagen de la seccion PENDIENTE-->
+                            <Image Source="user_icon.png"
+                                   HeightRequest="15"
+                                   WidthRequest="15">
+                            </Image>
+                            <Label Text="Cambiar Contraseña"
+                                   TextColor="#05DF73"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <!--Diseño LINEA-->
+                        <BoxView HeightRequest="2"
+                                 Color="#05DF73"
+                                 HorizontalOptions="Fill" />
+                    </VerticalStackLayout>
+
+                    <!--CAMPOS DE CAMBIO DE CONTRASEÑA-->
+                    <VerticalStackLayout Spacing="20"
+                                         Margin="0,10,0,0">
+
+                        <!--CAMPO PARA INSERTAR CONTRASEÑA ACTUAL-->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Contraseña actual"
+                                   TextColor="#D1D5DB"
+                                   FontSize="14" />
+                            <Border StrokeShape="RoundRectangle 8"
+                                    StrokeThickness="0"
+                                    BackgroundColor="#1F2937"
+                                    Padding="15,5">
+                                <Entry TextColor="White"
+                                       Placeholder="********"
+                                       PlaceholderColor="#6B7280"
+                                       IsPassword="True"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!--CAMPO DE NUEVA CONTRASEÑA-->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Nueva contraseña"
+                                   TextColor="#D1D5DB"
+                                   FontSize="14" />
+                            <Border StrokeShape="RoundRectangle 8"
+                                    StrokeThickness="0"
+                                    BackgroundColor="#1F2937"
+                                    Padding="15,5">
+                                <Entry Text=""
+                                       TextColor="#6B7280"
+                                        IsPassword="True"/>
+                            </Border>
+
+                        </VerticalStackLayout>
+
+                        <!--CAMPO PARA CONFIRMAR NUEVA CONTRASEÑA-->
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Confirmar nueva contraseña"
+                                   TextColor="#D1D5DB"
+                                   FontSize="14" />
+                            <Border StrokeShape="RoundRectangle 8"
+                                    StrokeThickness="0"
+                                    BackgroundColor="#1F2937"
+                                    Padding="15,5">
+                                <Entry TextColor="#9CA3AF"
+                                       PlaceholderColor="#6B7280" 
+                                       IsPassword="True"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+
+                    <Button Text="Cambiar Contraseña"
+                            BackgroundColor="#05DF73"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CornerRadius="8"
+                            HeightRequest="50"
+                            Margin="0,20,0,0" />
+
+                </VerticalStackLayout>
+            </Border>
+
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantCareMobile.Views.HomePage"
+             Title="Panel de Inicio"
+             Shell.ForegroundColor="#05DF73"
+             Shell.BackgroundColor="#101928"
+             BackgroundColor="#101928">
+    <ScrollView>
+        <StackLayout Orientation="Vertical"
+                     Margin="15"
+                     Spacing="20">
+            <!--Bienvenida del usuario-->
+            <VerticalStackLayout>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="¡Hola, "
+                                  FontFamily="RobotoVar"
+                                  FontAttributes="Bold"
+                                  FontSize="28" />
+                            <Span Text="Andres"
+                                  FontFamily="RobotoVar"
+                                  FontAttributes="Bold"
+                                  FontSize="28" />
+                            <!--PENDIENTE: Enlazar el nombre del usuario logeado-->
+                            <Span Text=" 🗣️🔥"
+                                  FontFamily="RobotoVar"
+                                  FontAttributes="Bold"
+                                  FontSize="28" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label >
+                <Label Text="Bienvenido a tu jardin digital"
+                       FontFamily="RobotoVar"
+                       FontAttributes="Bold"
+                       FontSize="28" />
+            </VerticalStackLayout>
+
+            <!--Seccion para identificar planta-->
+            <Border StrokeShape="RoundRectangle 15"
+                    BackgroundColor="#162032"
+                    StrokeThickness="0"
+                    Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Label Text="🌿 Identificar Nueva Planta"
+                               TextColor="#4ADE80"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               VerticalOptions="Center" />
+
+                        <ImageButton Grid.Column="2"
+                                     Source="help_icon.png"
+                                     HeightRequest="25"
+                                     WidthRequest="25" />
+                    </Grid>
+
+                    <Label Text="Sube una foto para identificar cualquier planta y agregarla a tu colección"
+                           TextColor="#D1D5DB"
+                           FontSize="14" />
+
+                    <Border Stroke="#4B5563"
+                            StrokeThickness="1"
+                            StrokeDashArray="4,4"
+                            StrokeShape="RoundRectangle 10"
+                            BackgroundColor="Transparent"
+                            HeightRequest="150"
+                            Padding="20">
+                        <VerticalStackLayout VerticalOptions="Center"
+                                             HorizontalOptions="Center"
+                                             Spacing="10">
+                            <Image Source="upload_icon.png"
+                                   HeightRequest="40"
+                                   WidthRequest="40" />
+
+                            <Label HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Pulsa aqui"
+                                              TextColor="#4ADE80"
+                                              FontAttributes="Bold" />
+                                        <Span Text=" para subir una imagen"
+                                              TextColor="#9CA3AF" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Text="PNG, JPG, GIF hasta 10MB"
+                                   TextColor="#6B7280"
+                                   FontSize="12"
+                                   HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <!--Seccion "Mi Jardin"-->
+            <Border StrokeShape="RoundRectangle 15"
+                    BackgroundColor="#162032"
+                    StrokeThickness="0"
+                    Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="🪴 Mi Jardín"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="18" />
+
+                        <Label Grid.Column="1"
+                               Text="Ver todos →"
+                               TextColor="#60A5FA"
+                               FontSize="14">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <Label Text="Tus plantas aparecerán aquí..."
+                           TextColor="#9CA3AF"
+                           HorizontalOptions="Center"
+                           Padding="20" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!--Seccion "Recordatorios"-->
+            <Border StrokeShape="RoundRectangle 15"
+                    BackgroundColor="#162032"
+                    StrokeThickness="0"
+                    Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="📅 Recordatorios"
+                           TextColor="#60A5FA"
+                           FontAttributes="Bold"
+                           FontSize="16" />
+
+                    <VerticalStackLayout Spacing="5"
+                                         VerticalOptions="Center">
+                        <Image Source="plant_placeholder.png"
+                               HeightRequest="40" />
+                        <Label Text="Riego pendiente"
+                               TextColor="White"
+                               FontSize="12"
+                               HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            
+            <!--TIPS DE CUIDADO-->
+            <Border StrokeShape="RoundRectangle 15"
+                    BackgroundColor="#162032"
+                    StrokeThickness="0"
+                    Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="💡 Tips de Cuidado"
+                           TextColor="#FBBF24"
+                           FontAttributes="Bold"
+                           FontSize="18" />
+                    <Label Text="Consejos diarios para tus plantas..."
+                           TextColor="Gray" />
+                </VerticalStackLayout>
+            </Border>
+
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>
