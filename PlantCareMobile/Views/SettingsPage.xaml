@@ -92,120 +92,8 @@
 
                 </VerticalStackLayout>
             </Border>
-
-            <!--<Border StrokeShape="RoundRectangle 12"
-                    BackgroundColor="#162032"
-                    StrokeThickness="0"
-                    Padding="20"
-                    Margin="0,0,0,20">
-
-                <VerticalStackLayout Spacing="20">
-
-                    <HorizontalStackLayout Spacing="10"
-                                           VerticalOptions="Center">
-                        <Image Source="palette_icon.png"
-                               HeightRequest="20"
-                               WidthRequest="20"
-                               VerticalOptions="Center" />
-
-                        <Label Text="Preferencias de Pantalla"
-                               TextColor="White"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               VerticalOptions="Center" />
-                    </HorizontalStackLayout>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Idioma"
-                               TextColor="#D1D5DB"
-                               FontSize="14" />
-
-                        <Border StrokeShape="RoundRectangle 8"
-                                StrokeThickness="0"
-                                BackgroundColor="#374151"
-                                Padding="15,0">
-                            <Picker Title="Seleccione un idioma"
-                                    TextColor="White"
-                                    TitleColor="#9CA3AF"
-                                    HeightRequest="50">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Español</x:String>
-                                        <x:String>English</x:String>
-                                        <x:String>Português</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </Picker>
-                        </Border>
-
-                        <Label Text="(Solo cambia el idioma de la interfaz, en desarrollo)"
-                               TextColor="#FBBF24"
-                               FontSize="12" />
-                    </VerticalStackLayout>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Formato de fecha"
-                               TextColor="#D1D5DB"
-                               FontSize="14" />
-
-                        <Border StrokeShape="RoundRectangle 8"
-                                StrokeThickness="0"
-                                BackgroundColor="#374151"
-                                Padding="15,0">
-
-                            <Picker Title="Formato"
-                                    TextColor="White"
-                                    TitleColor="#9CA3AF"
-                                    HeightRequest="50">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>DD/MM/YYYY</x:String>
-                                        <x:String>MM/DD/YYYY</x:String>
-                                        <x:String>YYYY-MM-DD</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </Picker>
-                        </Border>
-
-                        <Label Text="(No afecta a todas las fechas, en desarrollo)"
-                               TextColor="#FBBF24"
-                               FontSize="12" />
-                    </VerticalStackLayout>
-
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Unidad de temperatura"
-                               TextColor="#D1D5DB"
-                               FontSize="14" />
-
-                        <Border StrokeShape="RoundRectangle 8"
-                                StrokeThickness="0"
-                                BackgroundColor="#374151"
-                                Padding="15,0">
-
-                            <Picker Title="Unidad"
-                                    TextColor="White"
-                                    TitleColor="#9CA3AF"
-                                    HeightRequest="50">
-                                <Picker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Celsius (°C)</x:String>
-                                        <x:String>Fahrenheit (°F)</x:String>
-                                    </x:Array>
-                                </Picker.ItemsSource>
-                                <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                            </Picker>
-                        </Border>
-
-                        <Label Text="(Solo visual, en desarrollo)"
-                               TextColor="#FBBF24"
-                               FontSize="12" />
-                    </VerticalStackLayout>
-
-                </VerticalStackLayout>
-            </Border>-->
-
+            
+            <!--Seccion de Gestion de datos-->
             <Border StrokeShape="RoundRectangle 12"
                     BackgroundColor="#162032"
                     StrokeThickness="0"
@@ -216,10 +104,7 @@
 
                     <HorizontalStackLayout Spacing="10"
                                            VerticalOptions="Center">
-                        <Image Source="data_icon.png"
-                               HeightRequest="25"
-                               WidthRequest="25" />
-                        <Label Text="Gestión de Datos"
+                        <Label Text="📊 Gestión de Datos"
                                TextColor="White"
                                FontSize="20"
                                FontAttributes="Bold"
@@ -229,10 +114,7 @@
 
                     <VerticalStackLayout Spacing="10">
                         <HorizontalStackLayout Spacing="8">
-                            <Image Source="export_icon.png"
-                                   HeightRequest="18"
-                                   WidthRequest="18" />
-                            <Label Text="Exportar Datos"
+                            <Label Text="📤 Exportar Datos"
                                    TextColor="White"
                                    FontAttributes="Bold"
                                    FontSize="16" />
@@ -242,7 +124,7 @@
                                TextColor="#9CA3AF"
                                FontSize="13" />
 
-                        <Button Text="Exportar Datos"
+                        <Button Text="📥 Exportar Datos"
                                 BackgroundColor="#2563EB"
                                 TextColor="White"
                                 FontAttributes="Bold"
@@ -260,10 +142,8 @@
 
                     <VerticalStackLayout Spacing="10">
                         <HorizontalStackLayout Spacing="8">
-                            <Image Source="trash_icon.png"
-                                   HeightRequest="18"
-                                   WidthRequest="18" />
-                            <Label Text="Eliminar Todos los Datos"
+
+                            <Label Text="🗑️ Eliminar Todos los Datos"
                                    TextColor="#EF4444"
                                    FontAttributes="Bold"
                                    FontSize="16" />
@@ -281,7 +161,7 @@
                             </Label.FormattedText>
                         </Label>
 
-                        <Button Text="Eliminar Todos los Datos"
+                        <Button Text="⚠️ Eliminar Todos los Datos"
                                 BackgroundColor="#DC2626"
                                 TextColor="White"
                                 FontAttributes="Bold"
