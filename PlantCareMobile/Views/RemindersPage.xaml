@@ -1,12 +1,91 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:PlantCareMobile.ViewModels"
+             xmlns:models="clr-namespace:PlantCareMobile.Models"
              x:Class="PlantCareMobile.Views.RemindersPage"
-             Title="RemindersPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Recordatorios"
+             Shell.BackgroundColor="#101928"
+             BackgroundColor="#101928">
+
+    <Grid RowDefinitions="Auto, *" Padding="20">
+        
+        <VerticalStackLayout Grid.Row="0" Margin="0,0,0,20">
+            <Label Text="📅 Calendario de Riego"
+                   TextColor="#05DF73"
+                   FontSize="28"
+                   FontAttributes="Bold"/>
+            <Label Text="Mantén tus plantas hidratadas"
+                   TextColor="#9CA3AF"
+                   FontSize="16"/>
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding PlantsDue}">
+            
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+                    <Label Text="✅" FontSize="60" HorizontalOptions="Center"/>
+                    <Label Text="¡Todo al día!" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="No tienes plantas pendientes de riego." TextColor="Gray" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:SavedPlant">
+                    <Border StrokeThickness="0"
+                            BackgroundColor="#1E293B"
+                            Margin="0,0,0,15"
+                            Padding="15">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+
+                        <Grid ColumnDefinitions="60, *, Auto">
+                            
+                            <Border Grid.Column="0" 
+                                    HeightRequest="60" 
+                                    WidthRequest="60" 
+                                    StrokeShape="RoundRectangle 30"
+                                    StrokeThickness="0">
+                                <Image Source="{Binding ImagePath}" Aspect="AspectFill"/>
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1" 
+                                                 VerticalOptions="Center" 
+                                                 Padding="15,0">
+                                <Label Text="{Binding DisplayName}"
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       LineBreakMode="TailTruncation"/>
+                                
+                                <Label Text="{Binding WateringStatus}"
+                                       TextColor="{Binding StatusColor}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+
+                            <Button Grid.Column="2"
+                                    Text="💧"
+                                    FontSize="20"
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    CornerRadius="25"
+                                    Padding="0"
+                                    BackgroundColor="#2D3748"
+                                    TextColor="#60A5FA"
+                                    VerticalOptions="Center"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RemindersViewModel}}, Path=WaterCommand}"
+                                    CommandParameter="{Binding .}">
+                                <Button.Shadow>
+                                    <Shadow Brush="#000000" Offset="2,2" Opacity="0.5"/>
+                                </Button.Shadow>
+                            </Button>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
