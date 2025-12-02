@@ -1,6 +1,6 @@
 ﻿using PlantCareMobile.Models;
 using PlantCareMobile.Services;
-using PlantCareMobile.ViewModels; // <--- Agrega este using
+using PlantCareMobile.ViewModels;
 
 namespace PlantCareMobile.Views;
 
@@ -12,7 +12,6 @@ public partial class HomePage : ContentPage
     private readonly PlantIdentificationService plantService;
     private readonly HomeViewModel _viewModel; // <--- Nueva variable para el ViewModel
     #endregion
-
     #region Constructor
     // Modificamos el constructor para recibir el ViewModel (Inyección)
     public HomePage(HomeViewModel viewModel) 
@@ -25,7 +24,6 @@ public partial class HomePage : ContentPage
         plantService = new PlantIdentificationService();
     }
     #endregion
-
     #region Event Handlers
     private async void OnUploadAreaTapped(object sender, EventArgs e)
     {
@@ -72,7 +70,6 @@ public partial class HomePage : ContentPage
         }
     }
     #endregion
-
     #region Photo Methods
     private async Task OnTakePhotoClicked()
     {
@@ -108,7 +105,6 @@ public partial class HomePage : ContentPage
         }
     }
     #endregion
-
     #region Plant Identification
     private async Task IdentifyPlant()
     {
@@ -262,7 +258,17 @@ public partial class HomePage : ContentPage
         return filePath;
     }
     #endregion
-
+     #region Recordatorios
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        // Recargar datos cada vez que entramos a esta pantalla
+        if (_viewModel != null)
+        {
+            await _viewModel.LoadDataAsync();
+        }
+    }
+    #endregion
     #region UI Helper Methods
     private void SetLoadingVisibility(bool isVisible)
     {

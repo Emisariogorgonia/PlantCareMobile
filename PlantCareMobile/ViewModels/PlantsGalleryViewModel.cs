@@ -155,20 +155,35 @@ public class PlantsGalleryViewModel : INotifyPropertyChanged
     {
         if (plant == null) return;
 
+        // 1. PREGUNTA DE SEGURIDAD
+        bool confirmacion = await Shell.Current.DisplayAlert(
+            "¿Eliminar planta?", 
+            $"¿Estás seguro de que quieres eliminar a '{plant.DisplayName}'? Esta acción no se puede deshacer.", 
+            "Sí, eliminar", 
+            "Cancelar");
+
+        // Si el usuario dice "Cancelar" (false), salimos y no hacemos nada
+        if (!confirmacion) return;
+
+        // 2. Si dijo que SÍ, procedemos a borrar
         try
         {
             await _databaseService.DeletePlantAsync(plant);
             Plants.Remove(plant);
             
+            // Borrar la imagen del almacenamiento para no dejar basura
             if (!string.IsNullOrEmpty(plant.ImagePath) && File.Exists(plant.ImagePath))
             {
                 File.Delete(plant.ImagePath);
             }
+            
+            // Actualizar estado de la lista
             HasPlants = Plants.Count > 0;
         }
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine($"Error deleting plant: {ex.Message}");
+            await Shell.Current.DisplayAlert("Error", "No se pudo eliminar la planta", "OK");
         }
     }
     private async Task AddSensorAsync(SavedPlant plant)

@@ -39,6 +39,8 @@ namespace PlantCareMobile
             builder.Services.AddTransient<Views.PlantsGalleryPage>(); // Tu página existente
             builder.Services.AddTransient<ViewModels.HomeViewModel>();
             builder.Services.AddTransient<Views.HomePage>();
+            builder.Services.AddTransient<ViewModels.RemindersViewModel>();
+            builder.Services.AddTransient<Views.RemindersPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

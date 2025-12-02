@@ -62,4 +62,41 @@ public class SavedPlant : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string? name = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+    
+
+
+    // --- NUEVOS CAMPOS PARA RECORDATORIOS ---
+    
+    // Cada cuántos días se debe regar (Por defecto 7 días)
+    public int WateringFrequency { get; set; } = 7; 
+
+    // Fecha del último riego (Por defecto, el día que la agregaste)
+    public DateTime LastWateredDate { get; set; } = DateTime.Now;
+
+    // --- PROPIEDADES CALCULADAS (No se guardan en BD, se calculan al vuelo) ---
+
+    [Ignore]
+    public DateTime NextWateringDate => LastWateredDate.AddDays(WateringFrequency);
+
+    [Ignore]
+    public bool IsWateringDue => DateTime.Now.Date >= NextWateringDate.Date;
+
+    [Ignore]
+    public string WateringStatus 
+    {
+        get
+        {
+            var daysRemaining = (NextWateringDate.Date - DateTime.Now.Date).TotalDays;
+            
+            if (daysRemaining < 0) return $"Atrasado por {Math.Abs((int)daysRemaining)} días ⚠️";
+            if (daysRemaining == 0) return "¡Hoy toca riego! 💧";
+            if (daysRemaining == 1) return "Riego mañana ⏳";
+            
+            return $"Riego en {(int)daysRemaining} días";
+        }
+    }
+
+    [Ignore]
+    public Color StatusColor => IsWateringDue ? Colors.Red : Colors.Green; // Para pintar el texto
 }
