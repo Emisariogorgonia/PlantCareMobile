@@ -15,6 +15,7 @@ namespace PlantCareMobile.ViewModels
         private string _password;
         private bool _isBusy;
         private string _errorMessage;
+        private bool _hasErrorMessage;
 
         // 2. PROPIEDADES PÚBLICAS (Con notificación de cambios)
         public string Email
@@ -59,6 +60,21 @@ namespace PlantCareMobile.ViewModels
             }
         }
 
+        // Nueva propiedad para indicar si hay un mensaje de error
+        public bool HasErrorMessage
+        {
+            get => _hasErrorMessage;
+            set
+            {
+                if (_hasErrorMessage != value)
+                {
+                    _hasErrorMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
         public string ErrorMessage
         {
             get => _errorMessage;
@@ -67,10 +83,21 @@ namespace PlantCareMobile.ViewModels
                 if (_errorMessage != value)
                 {
                     _errorMessage = value;
+
+                    if (!string.IsNullOrEmpty(_errorMessage))
+                    {
+                        _hasErrorMessage = true;
+                    }
+                    else
+                    {
+                        _hasErrorMessage = false;
+                    }
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(HasErrorMessage));
                 }
             }
         }
+
         // 3. COMANDOS
         public ICommand LoginCommand { get; }
         public ICommand RegisterCommand { get; }
@@ -87,11 +114,12 @@ namespace PlantCareMobile.ViewModels
             ForgotPasswordCommand = new Command(async () => await ForgotPasswordAsync());
         }
 
-        // MÉTODOS DE LÓGICA
+        // MÉTODOS DE LÓGICA (Comandos principales)
         private async Task LoginAsync()
         {
             if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
             {
+                
                 ErrorMessage = "Por favor completa todos los campos";
                 return;
             }
@@ -199,6 +227,7 @@ namespace PlantCareMobile.ViewModels
                 IsBusy = false;
             }
         }
+
 
         // IMPLEMENTACIÓN DE INotifyPropertyChanged BOILERPLATE
         public event PropertyChangedEventHandler PropertyChanged;

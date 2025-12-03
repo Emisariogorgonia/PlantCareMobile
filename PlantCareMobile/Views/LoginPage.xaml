@@ -73,8 +73,7 @@
                            Text="{Binding Password}"
                            IsPassword="True"
                            Grid.Column="1"
-                           Placeholder="Contraseña"
-                            />
+                           Placeholder="Contraseña" />
                     <Image x:Name="YesNoShowPassImage"
                            Grid.Column="2"
                            Source="showpassword_icon.png"
@@ -113,7 +112,9 @@
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
+
             
+
             <!--Boton para Iniciar Sesion-->
             <Button x:Name="loginButton"
                     Text="Iniciar Sesion"
@@ -136,7 +137,29 @@
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
+
+            <!--Mensaje de error-->
+            <Grid ColumnDefinitions="Auto,*"
+                  Margin="0,5,0,0"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  ColumnSpacing="20"
+                  IsVisible="{Binding HasErrorMessage}">
+                <Image Source="warning_loginregister_icon.png"
+                       WidthRequest="12"
+                       HeightRequest="12" 
+                       />
+                <Label x:Name="errorMessageLabel"
+                       Text="{Binding ErrorMessage}"
+                       TextColor="Red"
+                       FontSize="12"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Column="1" />
+            </Grid>
+
         </StackLayout>
+        
 
 
     </Grid>
